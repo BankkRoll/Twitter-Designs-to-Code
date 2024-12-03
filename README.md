@@ -12,6 +12,16 @@ Please note: **No more than 1 hour is spent on any design recreation**, so they 
 - Each folder contains:
   - **README.md**: Includes the tweet link and any necessary details about the design.
 
+- **Primary Technologies Required:**
+  - TypeScript
+  - React
+  - Framer Motion
+  - shadcn/ui
+
+**Heads up!**
+Follow and install components that are missing and shown as @/components/ui/... via the installation process from **shadcn/ui**.
+https://ui.shadcn.com/docs/installation
+
 ---
 
 ## 🔗 Original Attribution
