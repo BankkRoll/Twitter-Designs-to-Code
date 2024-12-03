@@ -2,6 +2,8 @@
 
 This repository showcases recreations of random designs found on Twitter, turned into code. Each design is stored in its own folder with linked references to the original tweets and attribution to the respective designers or companies.
 
+Please note: **No more than 1 hour is spent on any design recreation**, so they might not be up to production-level quality. These are purely for example purposes.
+
 ---
 
 ## 📂 Structure
