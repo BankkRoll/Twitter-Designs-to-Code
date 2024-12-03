@@ -9,7 +9,6 @@ This repository showcases recreations of random designs found on Twitter, turned
 - Each design is placed in a separate folder under `/designs/`.
 - Each folder contains:
   - **README.md**: Includes the tweet link and any necessary details about the design.
-  - Code files (e.g., HTML, CSS, JavaScript).
 
 ---
 
@@ -21,13 +20,7 @@ The designs in this repository belong to the original designers or companies as 
 
 ## 📝 Disclaimer & Removal
 
-If you are the owner of a design and would like it removed, please [open an issue](https://github.com/your-username/repo-name/issues) or contact me on [X (Twitter)](https://x.com/bankkroll_eth).
-
----
-
-## 🤝 Contributing
-
-Feel free to suggest designs or improve the code in this repository! Just open a pull request.
+If you are the owner of a design and would like it removed, please [open an issue](https://github.com/your-username/Twitter-Designs-to-Code/issues) or contact me on [X (Twitter)](https://x.com/bankkroll_eth).
 
 ---
 
