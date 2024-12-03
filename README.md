@@ -1,41 +1,49 @@
-# Twitter Designs to Code Repository
+# Tweet Designs to Code
 
-This repository showcases recreations of random designs found on Twitter, turned into code. Each design is stored in its own folder with linked references to the original tweets and attribution to the respective designers or companies.
+Transform tweet designs into components with ease.
 
-Please note: **No more than 1 hour is spent on any design recreation**, so they might not be up to production-level quality. These are purely for example purposes.
+## What is Tweet Designs to Code?
 
----
+A collaborative platform that:
+- Transforms innovative tweet designs into ready-to-use code components
+- Provides a registry of high-quality, community-curated UI elements
+- Enables developers to quickly implement beautiful designs
 
-## 📂 Structure
-
-- Each design is placed in a separate folder under `/designs/`.
-- Each folder contains:
-  - **README.md**: Includes the tweet link and any necessary details about the design.
-
-- **Primary Technologies Required:**
+- **Primary Technologies Used:**
   - TypeScript
   - React
   - Framer Motion
   - shadcn/ui
 
-**Heads up!**
-Follow and install components that are missing and shown as @/components/ui/... via the installation process from **shadcn/ui**.
-https://ui.shadcn.com/docs/installation
+##  Quick Start
 
----
+### Installation
+We follow the same seamless installation process as shadcn/ui. Install components directly from our registry:
 
-## 🔗 Original Attribution
+```bash
+npx shadcn@latest add "https://tweet-to-code.vercel.app/r/ui/component-name.json"
+```
+
+### Example: Installing Sherlock Hero Component
+```bash
+npx shadcn@latest add "https://tweet-to-code.vercel.app/r/ui/sherlock-hero.json"
+```
+
+The component will be automatically added to `components/ui/sherlock-hero.tsx`.
+
+
+## Original Attribution
 
 The designs in this repository belong to the original designers or companies as referenced in the linked tweets. Our aim is to learn, share, and appreciate these designs by recreating them in code.
 
 ---
 
-## 📝 Disclaimer & Removal
+## Disclaimer & Removal
 
-If you are the owner of a design and would like it removed, please [open an issue](https://github.com/your-username/Twitter-Designs-to-Code/issues) or contact me on [X (Twitter)](https://x.com/bankkroll_eth).
+If you are the owner of a design and would like it removed, please [open an issue](https://github.com/BankkRoll/tweet-to-code/issues) or contact me on [X (Twitter)](https://x.com/bankkroll_eth).
 
 ---
 
-## 📄 License
+## License
 
 The repository and its contents are licensed under [MIT](LICENSE.md). However, the designs themselves are **owned by the original creators**.
