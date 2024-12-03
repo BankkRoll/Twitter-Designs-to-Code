@@ -84,7 +84,7 @@ export default function Home() {
             className="border border-white absolute top-0 left-0 right-0 mx-auto flex items-center justify-center"
           >
             <Image
-              src="/placeholder.svg"
+              src="https://via.placeholder.com/60x80?text=S1"
               alt="Sherlock Logo"
               width={60}
               height={80}
@@ -99,7 +99,7 @@ export default function Home() {
             className="border border-white absolute top-2 left-0 right-0 mx-auto flex items-center justify-center"
           >
             <Image
-              src="/placeholder.svg"
+              src="https://via.placeholder.com/70x80?text=S2"
               alt="Sherlock Logo"
               width={70}
               height={80}
@@ -114,7 +114,7 @@ export default function Home() {
             className="border border-white  absolute top-4 left-0 right-0 mx-auto flex items-center justify-center"
           >
             <Image
-              src="/placeholder.svg"
+              src="https://via.placeholder.com/70x80?text=S2"
               alt="Sherlock Logo"
               width={80}
               height={80}
@@ -197,7 +197,7 @@ export default function Home() {
               transition={{ delay: 0.7 + index * 0.1, duration: 0.5 }}
             >
               <Image
-                src="/placeholder.svg"
+                src={`https://via.placeholder.com/100x40?text=${company.split(' ')[0]}`}
                 alt={company}
                 width={100}
                 height={40}
