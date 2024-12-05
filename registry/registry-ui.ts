@@ -4,7 +4,7 @@ export const ui: Registry = [
   {
     name: "sherlock-hero",
     type: "registry:ui",
-    dependencies: ["framer-motion"],
+    dependencies: ["framer-motion", "lucide-react"],
     files: [
       {
         path: "ui/sherlock-hero.tsx",
@@ -17,7 +17,7 @@ export const ui: Registry = [
   {
     name: "handwritten-hero",
     type: "registry:ui",
-    dependencies: ["framer-motion"],
+    dependencies: ["framer-motion", "lucide-react"],
     files: [
       {
         path: "ui/handwritten-hero.tsx",

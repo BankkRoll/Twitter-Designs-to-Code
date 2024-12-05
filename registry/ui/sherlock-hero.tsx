@@ -1,7 +1,9 @@
 "use client";
 
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Menu } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function SherlockHero() {
@@ -19,27 +21,54 @@ export function SherlockHero() {
           animate={{ opacity: 1, backdropFilter: "blur(8px)" }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <div className="h-12 flex justify-center items-center gap-8">
-            <Link href="/" className="text-base font-semibold">
+          <div className="h-12 flex justify-between items-center md:justify-center md:gap-8">
+            <a href="#" className="text-base font-semibold">
               Sherlock
-            </Link>
-            <div className="flex items-center space-x-4">
-              <Link href="#" className="text-sm">
+            </a>
+            <div className="hidden md:flex items-center space-x-4">
+              <a href="#" className="text-sm">
                 Product
-              </Link>
-              <Link href="#" className="text-sm">
+              </a>
+              <a href="#" className="text-sm">
                 Features
-              </Link>
-              <Link href="#" className="text-sm">
+              </a>
+              <a href="#" className="text-sm">
                 Pricing
-              </Link>
-              <Link href="#" className="text-sm">
+              </a>
+              <a href="#" className="text-sm">
                 About
-              </Link>
+              </a>
             </div>
-            <Link href="#" className="text-sm">
+            <a href="#" className="hidden md:block text-sm">
               Log in
-            </Link>
+            </a>
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="md:hidden">
+                  <Menu className="h-5 w-5" />
+                  <span className="sr-only">Toggle menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right">
+                <nav className="flex flex-col gap-4">
+                  <a href="#" className="text-sm">
+                    Product
+                  </a>
+                  <a href="#" className="text-sm">
+                    Features
+                  </a>
+                  <a href="#" className="text-sm">
+                    Pricing
+                  </a>
+                  <a href="#" className="text-sm">
+                    About
+                  </a>
+                  <a href="#" className="text-sm">
+                    Log in
+                  </a>
+                </nav>
+              </SheetContent>
+            </Sheet>
           </div>
         </motion.div>
       </motion.nav>
@@ -92,7 +121,7 @@ export function SherlockHero() {
         </div>
 
         <motion.h1
-          className="mx-auto max-w-4xl mb-6 text-6xl font-bold tracking-tight"
+          className="mx-auto max-w-4xl mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
@@ -101,7 +130,7 @@ export function SherlockHero() {
         </motion.h1>
 
         <motion.p
-          className="mx-auto max-w-2xl mb-10 text-xl text-gray-600"
+          className="mx-auto max-w-2xl mb-10 text-base sm:text-lg md:text-xl text-gray-600"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
@@ -112,18 +141,21 @@ export function SherlockHero() {
         </motion.p>
 
         <motion.div
-          className="flex justify-center items-center gap-4"
+          className="flex flex-col sm:flex-row justify-center items-center gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
-          <Button size="lg" className="px-6 text-base rounded-xl shadow-lg">
+          <Button
+            size="lg"
+            className="w-full sm:w-auto px-6 text-base rounded-xl shadow-lg"
+          >
             Create Account
-            <div className="ml-2 space-x-1">
-              <span className="w-5 h-5 p-1 text-xs rounded-sm border opacity-70">
+            <div className="ml-2 space-x-1 hidden sm:inline-flex">
+              <span className="w-5 h-5 text-xs rounded-sm border opacity-70">
                 ⌘
               </span>
-              <span className="w-5 h-5 p-1 text-xs rounded-sm border opacity-70">
+              <span className="w-5 h-5 text-xs rounded-sm border opacity-70">
                 K
               </span>
             </div>
@@ -131,7 +163,7 @@ export function SherlockHero() {
           <Button
             variant="outline"
             size="lg"
-            className="text-base rounded-xl shadow-lg"
+            className="w-full sm:w-auto text-base rounded-xl shadow-lg"
           >
             Learn more
           </Button>
@@ -147,7 +179,7 @@ export function SherlockHero() {
         <p className="mb-8 text-center text-gray-500">
           Trusted by specialist at
         </p>
-        <div className="mx-auto max-w-7xl grid grid-cols-2 justify-items-center items-center gap-8 lg:grid-cols-8 md:grid-cols-4">
+        <div className="mx-auto max-w-7xl grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 justify-items-center items-center gap-8">
           {[
             "Bloomberg",
             "TechCrunch",
