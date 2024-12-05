@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 
+import Link from "next/link";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { cn } from "@/lib/utils";
 
@@ -23,7 +24,9 @@ export function Header() {
   return (
     <header className="bg-background/20 sticky top-0 z-50 flex justify-center px-2 py-4 backdrop-blur transition-all md:px-4">
       <div className="container flex justify-between items-center px-4 md:px-0">
-        <div />
+        <Link href="/">
+          <img src="/logo.png" alt="logo" className="h-8 w-8" />
+        </Link>
 
         <ThemeToggle />
       </div>

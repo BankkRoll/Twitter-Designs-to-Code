@@ -14,4 +14,17 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "handwritten-hero",
+    type: "registry:ui",
+    dependencies: ["framer-motion"],
+    files: [
+      {
+        path: "ui/handwritten-hero.tsx",
+        content: "./registry/ui/handwritten-hero.tsx",
+        type: "registry:ui",
+        target: "",
+      },
+    ],
+  },
 ];

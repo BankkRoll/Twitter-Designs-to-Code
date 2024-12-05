@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 
+import { Analytics } from "@vercel/analytics/react";
 import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
 import { Footer } from "@/components/layout/footer";
@@ -29,6 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
         <Footer />
         <Toaster />
+        <Analytics />
       </ThemeProvider>
     </React.Fragment>
   );
