@@ -81,8 +81,10 @@ export function Hero() {
         transition={{ delay: 0.4, duration: 0.5 }}
         className="mx-auto max-w-2xl mb-10 text-md sm:text-xl text-foreground/60"
       >
-        Transform viral Twitter/X designs into production-ready, fully
-        responsive React components with seamless theme integration.
+        Explore a collection of designs I have found on X/Twitter and
+        transformed into fully responsive reusable code examples. Each design is
+        linked to its original creator, and the full project is open source on
+        GitHub.
       </motion.p>
 
       <motion.div

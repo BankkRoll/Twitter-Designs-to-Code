@@ -1,7 +1,7 @@
 "use client";
 
-import { ArrowRight, Camera, Menu, Wallet } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { ArrowRight, Menu, Wallet } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 import { Button } from "@/components/ui/button";
@@ -10,12 +10,14 @@ import { motion } from "framer-motion";
 export default function FlowpayHero() {
   return (
     <div className="min-h-screen">
-      <header className="flex h-20 items-center px-8 relative">
-        <div className="flex items-center gap-3">
-          <div className="bg-black p-2.5 rounded-xl">
-            <Wallet className="h-5 w-5 text-white" />
-          </div>
-          <span className="text-[15px] font-medium">FlowPay</span>
+      <header className="flex h-20 items-center md:px-8 relative">
+        <div className="flex flex-row items-center gap-3">
+          <a href="#" className="flex items-center gap-2 text-xl">
+            <div className="bg-black rounded-lg p-2">
+              <Wallet className="h-5 w-auto text-white" />
+            </div>
+            <span className="text-[15px] font-medium">FlowPay</span>
+          </a>
         </div>
 
         <div className="hidden md:absolute inset-x-0 md:flex justify-center bg-muted px-6 py-3 w-fit m-auto rounded-lg">
@@ -39,7 +41,7 @@ export default function FlowpayHero() {
           <span className="hidden md:inline-flex text-[15px] font-medium cursor-pointer">
             Log in
           </span>
-          <Button className="bg-[#FF4444] hover:bg-[#FF4444]/90 text-[15px] font-medium rounded-lg px-5 py-2.5 h-auto">
+          <Button className="hidden md:inline-flex bg-[#FF4444] hover:bg-[#FF4444]/90 text-[15px] font-medium rounded-lg px-5 py-2.5 h-auto">
             Sign Up <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
           <Sheet>
@@ -63,7 +65,7 @@ export default function FlowpayHero() {
                 <a href="#" className="text-[15px] font-medium">
                   Contact
                 </a>
-                <Button className="bg-[#FF4444] hover:bg-[#FF4444]/90 text-[15px] font-medium rounded-full w-full">
+                <Button className="bg-[#FF4444] hover:bg-[#FF4444]/90 text-[15px] font-medium rounded-lg w-full">
                   Sign Up <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </nav>
