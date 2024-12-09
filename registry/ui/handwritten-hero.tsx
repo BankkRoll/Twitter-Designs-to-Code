@@ -6,7 +6,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
-export default function HandwrittenHero() {
+export function HandwrittenHero() {
   return (
     <div className="min-h-screen">
       <header className="container mx-auto flex h-20 items-center justify-between px-4">

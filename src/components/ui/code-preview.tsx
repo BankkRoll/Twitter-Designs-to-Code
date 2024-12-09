@@ -7,8 +7,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { ArrowDown, CheckIcon, ClipboardIcon, Terminal } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { CheckIcon, ClipboardIcon, Terminal } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useEffect, useState } from "react";
 
@@ -16,6 +16,7 @@ import { Badge } from "@/components/ui/badge";
 import { CodeBlockWrapper } from "@/components/ui/code-block-wrapper";
 import { CopyNpmCommandButton } from "@/components/ui/copy-button";
 import { Input } from "@/components/ui/input";
+import Link from "next/link";
 import { Tweet } from "react-tweet";
 import { cn } from "@/lib/utils";
 import { codeToHtml } from "shiki";
@@ -37,6 +38,7 @@ interface CodeExample {
   description: string;
   dependencies?: string[];
   inspiration: string;
+  shoutout: string;
   registryCommands?: InstallCommands;
   installCommands?: InstallCommands;
   shadcnCommands?: InstallCommands;
@@ -199,7 +201,7 @@ export function CodePreview({ examples }: CodePreviewProps) {
                             />
                           </div>
                           <div className="flex items-center gap-2">
-                            <p className="text-muted-foreground text-sm">
+                            <p className="text-muted-foreground text-sm mb-6">
                               The component will be in your components/ui folder
                               under for{" "}
                               <strong className="text-primary">
@@ -207,6 +209,13 @@ export function CodePreview({ examples }: CodePreviewProps) {
                               </strong>
                             </p>
                           </div>
+                          <Link
+                            href="#manual-installation"
+                            className="text-muted-foreground text-sm italic flex flex-col items-center"
+                          >
+                            <span>Want to install manually? Scroll down</span>
+                            <ArrowDown className="w-4 h-4 animate-bounce mt-2" />
+                          </Link>
                         </div>
                       )}
                     </div>
@@ -221,7 +230,7 @@ export function CodePreview({ examples }: CodePreviewProps) {
                     </div>
                   </div>
 
-                  <div className="pt-6 border-t">
+                  <div id="manual-installation" className="pt-6 border-t">
                     <Accordion type="single" collapsible>
                       <AccordionItem value="manual-install">
                         <AccordionTrigger>

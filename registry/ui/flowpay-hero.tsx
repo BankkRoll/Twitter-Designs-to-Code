@@ -7,7 +7,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
-export default function FlowpayHero() {
+export function FlowpayHero() {
   return (
     <div className="min-h-screen">
       <header className="flex h-20 items-center px-8 relative">
