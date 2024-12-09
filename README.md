@@ -61,7 +61,7 @@ If you are a design owner and wish to have a design removed, please:
 
 ## 📄 License
 
-- Repository: [MIT License](LICENSE.md)
+- Repository: [MIT License](LICENSE)
 - Design Ownership: Remains with original creators
 
 ---
