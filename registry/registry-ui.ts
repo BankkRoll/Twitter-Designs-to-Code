@@ -27,4 +27,17 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "flowpay-hero",
+    type: "registry:ui",
+    dependencies: ["framer-motion", "lucide-react"],
+    files: [
+      {
+        path: "ui/flowpay-hero.tsx",
+        content: "./registry/ui/flowpay-hero.tsx",
+        type: "registry:ui",
+        target: "",
+      },
+    ],
+  },
 ];
