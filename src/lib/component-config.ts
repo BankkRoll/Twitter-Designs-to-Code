@@ -1,3 +1,4 @@
+// src/lib/component-config.ts
 import FlowpayHero from "@/components/registry-examples/flowpay-hero";
 import HandwrittenHero from "@/components/registry-examples/handwritten-hero";
 import { SherlockHero } from "@/components/registry-examples/sherlock-hero";

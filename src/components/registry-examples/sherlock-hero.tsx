@@ -9,69 +9,61 @@ import { motion } from "framer-motion";
 export function SherlockHero() {
   return (
     <div className="min-h-screen relative">
-      <motion.nav
-        className="absolute right-0 left-0 top-2 z-50"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-        <motion.div
-          className="bg-background/80 mx-auto max-w-lg px-4 rounded-lg border backdrop-blur-sm"
-          initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-          animate={{ opacity: 1, backdropFilter: "blur(8px)" }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <div className="h-12 flex justify-between items-center md:justify-center md:gap-8">
-            <a href="#" className="text-base font-semibold">
-              Sherlock
-            </a>
-            <div className="hidden md:flex items-center space-x-4">
-              <a href="#" className="text-sm">
-                Product
+      <header className="absolute right-0 left-0 top-2 z-50">
+        <nav>
+          <div className="bg-background/80 mx-auto max-w-lg px-4 rounded-lg border backdrop-blur-sm">
+            <div className="h-12 flex justify-between items-center md:justify-center md:gap-8">
+              <a href="#" className="text-base font-semibold">
+                Sherlock
               </a>
-              <a href="#" className="text-sm">
-                Features
+              <div className="hidden md:flex items-center space-x-4">
+                <a href="#" className="text-sm">
+                  Product
+                </a>
+                <a href="#" className="text-sm">
+                  Features
+                </a>
+                <a href="#" className="text-sm">
+                  Pricing
+                </a>
+                <a href="#" className="text-sm">
+                  About
+                </a>
+              </div>
+              <a href="#" className="hidden md:block text-sm">
+                Log in
               </a>
-              <a href="#" className="text-sm">
-                Pricing
-              </a>
-              <a href="#" className="text-sm">
-                About
-              </a>
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon" className="md:hidden">
+                    <Menu className="h-5 w-5" />
+                    <span className="sr-only">Toggle menu</span>
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="right">
+                  <nav className="flex flex-col gap-4">
+                    <a href="#" className="text-sm">
+                      Product
+                    </a>
+                    <a href="#" className="text-sm">
+                      Features
+                    </a>
+                    <a href="#" className="text-sm">
+                      Pricing
+                    </a>
+                    <a href="#" className="text-sm">
+                      About
+                    </a>
+                    <a href="#" className="text-sm">
+                      Log in
+                    </a>
+                  </nav>
+                </SheetContent>
+              </Sheet>
             </div>
-            <a href="#" className="hidden md:block text-sm">
-              Log in
-            </a>
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="md:hidden">
-                  <Menu className="h-5 w-5" />
-                  <span className="sr-only">Toggle menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right">
-                <nav className="flex flex-col gap-4">
-                  <a href="#" className="text-sm">
-                    Product
-                  </a>
-                  <a href="#" className="text-sm">
-                    Features
-                  </a>
-                  <a href="#" className="text-sm">
-                    Pricing
-                  </a>
-                  <a href="#" className="text-sm">
-                    About
-                  </a>
-                  <a href="#" className="text-sm">
-                    Log in
-                  </a>
-                </nav>
-              </SheetContent>
-            </Sheet>
           </div>
-        </motion.div>
-      </motion.nav>
+        </nav>
+      </header>
 
       <motion.section
         className="px-4 pt-32 pb-16 text-center"

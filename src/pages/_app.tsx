@@ -1,5 +1,7 @@
 import "@/styles/globals.css";
 
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 import { Analytics } from "@vercel/analytics/react";
 import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
@@ -12,6 +14,8 @@ import { Toaster } from "@/components/ui/sonner";
 import { defaultSEO } from "@/lib/seo";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const queryClient = new QueryClient();
+
   return (
     <React.Fragment>
       <Head>
@@ -26,9 +30,11 @@ export default function App({ Component, pageProps }: AppProps) {
         defaultTheme="system"
         disableTransitionOnChange
       >
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
+        <QueryClientProvider client={queryClient}>
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
+        </QueryClientProvider>
         <Toaster />
         <Analytics />
       </ThemeProvider>

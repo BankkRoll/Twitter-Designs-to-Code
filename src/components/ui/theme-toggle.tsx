@@ -3,12 +3,19 @@
 import * as React from "react";
 
 import { AnimatePresence, motion } from "framer-motion";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 
-import { Button } from "@/components/ui/button";
+import { VariantProps } from "class-variance-authority";
 import { useTheme } from "next-themes";
 
-export function ThemeToggle() {
+type ButtonVariantType = VariantProps<typeof buttonVariants>["variant"];
+
+interface ThemeToggleProps {
+  variant?: ButtonVariantType;
+}
+
+export function ThemeToggle({ variant = "outline" }: ThemeToggleProps) {
   const { theme, setTheme } = useTheme();
   const [currentTheme, setCurrentTheme] = React.useState<string>(
     theme || "light",
@@ -26,7 +33,7 @@ export function ThemeToggle() {
 
   return (
     <Button
-      variant="outline"
+      variant={variant}
       size="icon"
       onClick={handleToggle}
       className="relative flex justify-center items-center"

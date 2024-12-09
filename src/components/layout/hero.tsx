@@ -1,12 +1,37 @@
+"use client";
+
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, Code, Laptop, Monitor, Moon, Sun } from "lucide-react";
 import React, { useState } from "react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
 
-export function Hero() {
+interface HeroProps {
+  items: Array<{
+    id: number;
+    slug: string;
+    title: string;
+  }>;
+}
+
+export function Hero({ items }: HeroProps) {
   const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
+  const { theme } = useTheme();
+
+  const getImageSrc = (imagePath: string) => {
+    const isLightTheme = theme === "light";
+    const extensionIndex = imagePath.lastIndexOf(".");
+    if (extensionIndex === -1) return imagePath;
+    return isLightTheme
+      ? imagePath.slice(0, extensionIndex) +
+          "-light" +
+          imagePath.slice(extensionIndex)
+      : imagePath;
+  };
 
   const features = [
     {
@@ -31,7 +56,7 @@ export function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.15,
         delayChildren: 0.2,
       },
     },
@@ -50,15 +75,13 @@ export function Hero() {
 
   return (
     <motion.section
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.7 }}
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
       className="px-4 py-32 text-center relative overflow-hidden"
     >
       <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
+        variants={itemVariants}
         className="mx-auto max-w-2xl mb-6 text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight flex flex-wrap items-center justify-center gap-2 text-center"
       >
         Designs from
@@ -71,14 +94,12 @@ export function Hero() {
           >
             <path d="M178.57 127.15 290.27 0h-26.46l-97.03 110.38L89.34 0H0l117.13 166.93L0 300.25h26.46l102.4-116.59 81.8 116.59h89.34M36.01 19.54H76.66l187.13 262.13h-40.66" />
           </svg>
-        </div>
+        </div>{" "}
         Brought to Life
       </motion.h1>
 
       <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.5 }}
+        variants={itemVariants}
         className="mx-auto max-w-2xl mb-10 text-md sm:text-xl text-foreground/60"
       >
         Explore a collection of designs I have found on X/Twitter and
@@ -88,8 +109,6 @@ export function Hero() {
       </motion.p>
 
       <motion.div
-        initial="hidden"
-        animate="visible"
         variants={containerVariants}
         className="flex flex-wrap justify-center items-center gap-4 mb-10"
       >
@@ -134,12 +153,11 @@ export function Hero() {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6, duration: 0.5 }}
-        className="flex justify-center items-center gap-4"
+        variants={containerVariants}
+        className="flex justify-center items-center gap-4 mb-10"
       >
-        <a
+        <motion.a
+          variants={itemVariants}
           href="https://x.com/bankkroll_eth"
           target="_blank"
           rel="noopener noreferrer"
@@ -157,8 +175,9 @@ export function Hero() {
               />
             </svg>
           </Button>
-        </a>
-        <a
+        </motion.a>
+        <motion.a
+          variants={itemVariants}
           href="https://github.com/BankkRoll/tweet-to-code"
           target="_blank"
           rel="noopener noreferrer"
@@ -179,7 +198,31 @@ export function Hero() {
               />
             </svg>
           </Button>
-        </a>
+        </motion.a>
+      </motion.div>
+
+      <motion.div
+        variants={containerVariants}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10"
+      >
+        {items.map((item) => (
+          <motion.div key={item.id} variants={itemVariants}>
+            <Link href={`/preview/${item.slug}`}>
+              <Card className="shadow-lg hover:shadow-xl hover:bg-foreground/5 transition-all duration-300">
+                <div className="w-full">
+                  <img
+                    src={getImageSrc("/examples/" + item.slug + ".png")}
+                    alt={item.title}
+                    className="w-full h-full object-cover rounded-t-xl"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle>{item.title}</CardTitle>
+                </CardHeader>
+              </Card>
+            </Link>
+          </motion.div>
+        ))}
       </motion.div>
     </motion.section>
   );

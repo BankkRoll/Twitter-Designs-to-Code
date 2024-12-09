@@ -123,7 +123,6 @@ export function CodePreview({ examples }: CodePreviewProps) {
                 <div className="p-6">
                   <div className="w-full flex flex-col gap-6 lg:flex-row">
                     <div className="w-full lg:w-3/5">
-                      {/* Header */}
                       <div className="space-y-4">
                         <h2 className="flex items-center gap-2 text-2xl font-bold">
                           {example.title}
@@ -224,7 +223,6 @@ export function CodePreview({ examples }: CodePreviewProps) {
 
                   <div className="pt-6 border-t">
                     <Accordion type="single" collapsible>
-                      {/* Manual Install Section */}
                       <AccordionItem value="manual-install">
                         <AccordionTrigger>
                           Manual Install {example.title}

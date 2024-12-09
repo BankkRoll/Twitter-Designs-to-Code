@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 export default function FlowpayHero() {
   return (
     <div className="min-h-screen">
-      <header className="flex h-20 items-center md:px-8 relative">
+      <header className="flex h-20 items-center px-8 relative">
         <div className="flex flex-row items-center gap-3">
           <a href="#" className="flex items-center gap-2 text-xl">
             <div className="bg-black rounded-lg p-2">
