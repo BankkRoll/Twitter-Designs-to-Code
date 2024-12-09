@@ -1,49 +1,69 @@
-# Tweet Designs to Code
+# Tweet to Code
 
-Transform tweet designs into components with ease.
+## 📝 Overview
 
-## What is Tweet Designs to Code?
+Tweet to Code is an design-to-code registry that I transform tweet designs i find into ready-to-use, customizable React components. Seamlessly integrate any of these designs into your projects with just a few commands.
 
-A collaborative platform that:
-- Transforms innovative tweet designs into ready-to-use code components
-- Provides a registry of high-quality, community-curated UI elements
-- Enables developers to quickly implement beautiful designs
+## ✨ Features
 
-- **Primary Technologies Used:**
-  - TypeScript
-  - React
-  - Framer Motion
-  - shadcn/ui
+- 🎨 Curated UI component designs from tweet designers
+- 🔧 Fully compatible with shadcn/ui ecosystem
+- 💻 Responsive and accessible components
+- 🌓 Built-in light/dark theme support
+- 🚀 Easy, CLI-based installation
 
-##  Quick Start
+## 🛠 Technologies
+
+<div style="display: flex; gap: 10px; align-items: center;">
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/Shadcn/UI-000000?style=for-the-badge&logo=shadcn/ui&logoColor=white" alt="Shadcn/UI" />
+  <img src="https://img.shields.io/badge/Framer%20Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" alt="Framer Motion" />
+  <img src="https://img.shields.io/badge/Lucide%20Icons-222222?style=for-the-badge&logo=lucide&logoColor=white" alt="Lucide Icons" />
+</div>
+
+## 🚀 Quick Start
+
+We use the exact same installation process and cli from:
+[shadcn/ui](https://ui.shadcn.com/docs/installation)
 
 ### Installation
-We follow the same seamless installation process as shadcn/ui. Install components directly from our registry:
+
+Install components directly from our registry:
 
 ```bash
+# Generic component installation
 npx shadcn@latest add "https://tweet-to-code.vercel.app/r/ui/component-name.json"
-```
 
-### Example: Installing Sherlock Hero Component
-```bash
+# Example: Sherlock Hero Component
 npx shadcn@latest add "https://tweet-to-code.vercel.app/r/ui/sherlock-hero.json"
 ```
 
-The component will be automatically added to `components/ui/sherlock-hero.tsx`.
+### Usage Example
 
+```tsx
+import { SherlockHero } from "@/components/ui/sherlock-hero"
 
-## Original Attribution
+export default function HomePage() {
+  return <SherlockHero />
+}
+```
 
-The designs in this repository belong to the original designers or companies as referenced in the linked tweets. Our aim is to learn, share, and appreciate these designs by recreating them in code.
+## 🤝 Design Attribution
+
+All designs are attributed to their original creators.
+
+## 🚨 Disclaimer
+
+If you are a design owner and wish to have a design removed, please:
+- [Open an Issue](https://github.com/BankkRoll/tweet-to-code/issues)
+- Contact via [X (Twitter)](https://x.com/bankkroll_eth)
+
+## 📄 License
+
+- Repository: [MIT License](LICENSE.md)
+- Design Ownership: Remains with original creators
 
 ---
 
-## Disclaimer & Removal
-
-If you are the owner of a design and would like it removed, please [open an issue](https://github.com/BankkRoll/tweet-to-code/issues) or contact me on [X (Twitter)](https://x.com/bankkroll_eth).
-
----
-
-## License
-
-The repository and its contents are licensed under [MIT](LICENSE.md). However, the designs themselves are **owned by the original creators**.
+**Built with ❤️ by Bankk**
