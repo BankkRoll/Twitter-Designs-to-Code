@@ -30,6 +30,12 @@ interface InstallCommands {
   bun: string;
 }
 
+interface ExtraCode {
+  id: string;
+  file: string;
+  code: string;
+}
+
 interface CodeExample {
   id: number;
   slug: string;
@@ -44,6 +50,7 @@ interface CodeExample {
   shadcnCommands?: InstallCommands;
   component: React.ElementType | null;
   code: string;
+  extraCode?: ExtraCode[];
 }
 
 interface CodePreviewProps {
@@ -51,15 +58,13 @@ interface CodePreviewProps {
 }
 
 export function CodePreview({ examples }: CodePreviewProps) {
-  const [formattedCodes, setFormattedCodes] = useState<Record<number, string>>(
-    {},
-  );
+  const [formattedCodes, setFormattedCodes] = useState<Record<any, any>>({});
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const { theme } = useTheme();
 
   useEffect(() => {
     const formatAllCodes = async () => {
-      const newFormattedCodes: Record<number, string> = {};
+      const newFormattedCodes: Record<any, any> = {};
       for (const example of examples) {
         if (example.code) {
           const formatted = await codeToHtml(example.code, {
@@ -67,6 +72,15 @@ export function CodePreview({ examples }: CodePreviewProps) {
             theme: theme === "dark" ? "github-dark" : "github-light",
           });
           newFormattedCodes[example.id] = formatted;
+        }
+        if (example.extraCode) {
+          for (const extraCode of example.extraCode) {
+            const formatted = await codeToHtml(extraCode.code, {
+              lang: "typescript",
+              theme: theme === "dark" ? "github-dark" : "github-light",
+            });
+            newFormattedCodes[`${example.id}-${extraCode.file}`] = formatted;
+          }
         }
       }
       setFormattedCodes(newFormattedCodes);
@@ -108,16 +122,14 @@ export function CodePreview({ examples }: CodePreviewProps) {
               </h2>
             </div>
 
-            <TabsContent value="preview">
-              <div className="p-4">
-                {example.component ? (
-                  <example.component />
-                ) : (
-                  <p className="text-muted-foreground text-center">
-                    No preview available.
-                  </p>
-                )}
-              </div>
+            <TabsContent value="preview" className="m-0">
+              {example.component ? (
+                <example.component />
+              ) : (
+                <p className="text-muted-foreground text-center">
+                  No preview available.
+                </p>
+              )}
             </TabsContent>
 
             <TabsContent value="install">
@@ -301,13 +313,60 @@ export function CodePreview({ examples }: CodePreviewProps) {
                             </div>
                           )}
 
+                          {example.extraCode &&
+                            example.extraCode.map((extraCode, index) => (
+                              <div key={index} className="mt-6">
+                                <h3 className="text-lg font-semibold">
+                                  Create {extraCode.file}
+                                </h3>
+                                <p className="text-muted-foreground my-2 text-sm">
+                                  Copy and paste the{" "}
+                                  <strong>{extraCode.file}</strong> code
+                                  directly in your project:
+                                </p>
+                                <div className="relative">
+                                  <CodeBlockWrapper>
+                                    <div
+                                      className="rounded-md border border-input shadow-sm transition-colors bg-muted/20 font-mono [&>pre]:!bg-transparent [&>pre]:p-4 [&_code]:break-all overflow-scroll"
+                                      dangerouslySetInnerHTML={{
+                                        __html:
+                                          formattedCodes[
+                                            `${example.id}-${extraCode.file}`
+                                          ] || "",
+                                      }}
+                                    />
+                                  </CodeBlockWrapper>
+                                  <Button
+                                    className="absolute top-4 right-4"
+                                    size="icon"
+                                    variant="outline"
+                                    onClick={() =>
+                                      copyToClipboard(
+                                        `${example.id}-${extraCode.file}`,
+                                        extraCode.file,
+                                        extraCode.code,
+                                      )
+                                    }
+                                  >
+                                    {copiedId ===
+                                    `${example.id}-${extraCode.file}` ? (
+                                      <CheckIcon className="w-4 h-4" />
+                                    ) : (
+                                      <ClipboardIcon className="w-4 h-4" />
+                                    )}
+                                  </Button>
+                                </div>
+                              </div>
+                            ))}
+
                           <div className="mt-6">
                             <h3 className="text-lg font-semibold">
                               Install {example.title}
                             </h3>
                             <p className="text-muted-foreground my-2 text-sm">
-                              Copy and paste the {example.title} code directly
-                              in your project:
+                              Copy and paste the{" "}
+                              <strong>{example.title}</strong> code directly in
+                              your project:
                             </p>
                             <div className="relative">
                               <CodeBlockWrapper>

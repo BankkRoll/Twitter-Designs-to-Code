@@ -40,4 +40,23 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "affix-hero",
+    type: "registry:ui",
+    dependencies: ["framer-motion", "lucide-react", "clsx", "tailwind-merge"],
+    files: [
+      {
+        path: "ui/affix-hero.tsx",
+        content: "./registry/ui/affix-hero.tsx",
+        type: "registry:ui",
+        target: "",
+      },
+      {
+        path: "lib/utils.ts",
+        content: "./registry/lib/utils.ts",
+        type: "registry:ui",
+        target: "",
+      },
+    ],
+  },
 ];
