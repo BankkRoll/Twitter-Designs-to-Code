@@ -15,7 +15,6 @@ import Link from "next/link";
 import { Search } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { cn } from "@/lib/utils";
-// Assuming 'codeExamples' is a predefined set of data.
 import { codeExamples } from "@/lib/component-config";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
@@ -36,8 +35,7 @@ export function Header() {
   const filteredExamples = examples?.filter(
     (example) =>
       example.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      example.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      example.category.toLowerCase().includes(searchTerm.toLowerCase()),
+      example.description.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   useEffect(() => {
