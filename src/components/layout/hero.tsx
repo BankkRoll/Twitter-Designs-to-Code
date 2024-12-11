@@ -21,6 +21,7 @@ interface HeroProps {
 export function Hero({ items }: HeroProps) {
   const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
   const { theme } = useTheme();
+  const reversedItems = [...items].reverse();
 
   const getImageSrc = (imagePath: string) => {
     const isLightTheme = theme === "light";
@@ -102,10 +103,10 @@ export function Hero({ items }: HeroProps) {
         variants={itemVariants}
         className="mx-auto max-w-2xl mb-10 text-md sm:text-xl text-foreground/60"
       >
-        Explore a collection of designs I have found on X/Twitter and
-        transformed into fully responsive reusable code examples. Each design is
-        linked to its original creator, and the full project is open source on
-        GitHub.
+        Explore a collection of designs from X/Twitter that have inspired me and
+        been transformed into fully responsive, reusable code examples. Each
+        design is attributed to its original creator, with the complete project
+        available as open source on GitHub.
       </motion.p>
 
       <motion.div
@@ -203,13 +204,17 @@ export function Hero({ items }: HeroProps) {
 
       <motion.div
         variants={containerVariants}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[minmax(200px,auto)] gap-4 mt-10"
       >
-        {items.map((item) => (
-          <motion.div key={item.id} variants={itemVariants}>
-            <Link href={`/preview/${item.slug}`}>
-              <Card className="shadow-lg hover:shadow-xl hover:bg-foreground/5 transition-all duration-300">
-                <div className="w-full">
+        {reversedItems.map((item, index) => (
+          <motion.div
+            key={item.id}
+            variants={itemVariants}
+            className="row-span-1"
+          >
+            <Link href={`/preview/${item.slug}`} className="h-full">
+              <Card className="shadow-lg hover:shadow-xl hover:bg-foreground/5 transition-all duration-300 h-full flex flex-col">
+                <div className="flex-grow">
                   <img
                     src={getImageSrc("/examples/" + item.slug + ".png")}
                     alt={item.title}

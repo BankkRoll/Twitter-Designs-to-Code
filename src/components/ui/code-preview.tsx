@@ -249,38 +249,6 @@ export function CodePreview({ examples }: CodePreviewProps) {
                           Manual Install {example.title}
                         </AccordionTrigger>
                         <AccordionContent>
-                          {example.shadcnCommands?.npm && (
-                            <div className="mt-6">
-                              <h3 className="text-lg font-semibold">
-                                Add shadcn/ui Components
-                              </h3>
-                              <p className="text-muted-foreground mb-2 text-sm">
-                                Use the following npm command to add the Shadcn
-                                component(s):
-                              </p>
-                              <div className="max-w-2xl relative flex items-center">
-                                <Input
-                                  readOnly
-                                  value={example.shadcnCommands.npm}
-                                  className="bg-muted/20 border-input py-6 pr-8 font-mono text-sm border focus-visible:border-input"
-                                />
-                                <CopyNpmCommandButton
-                                  className="absolute right-2"
-                                  commands={{
-                                    __npmCommand__:
-                                      example.shadcnCommands?.npm!,
-                                    __pnpmCommand__:
-                                      example.shadcnCommands?.pnpm!,
-                                    __yarnCommand__:
-                                      example.shadcnCommands?.yarn!,
-                                    __bunCommand__:
-                                      example.shadcnCommands?.bun!,
-                                  }}
-                                />
-                              </div>
-                            </div>
-                          )}
-
                           {example.installCommands?.npm && (
                             <div className="mt-6">
                               <h3 className="text-lg font-semibold">
@@ -307,6 +275,38 @@ export function CodePreview({ examples }: CodePreviewProps) {
                                       example.installCommands?.yarn!,
                                     __bunCommand__:
                                       example.installCommands?.bun!,
+                                  }}
+                                />
+                              </div>
+                            </div>
+                          )}
+
+                          {example.shadcnCommands?.npm && (
+                            <div className="mt-6">
+                              <h3 className="text-lg font-semibold">
+                                Add shadcn/ui Components
+                              </h3>
+                              <p className="text-muted-foreground mb-2 text-sm">
+                                Use the following npm command to add the Shadcn
+                                component(s):
+                              </p>
+                              <div className="max-w-2xl relative flex items-center">
+                                <Input
+                                  readOnly
+                                  value={example.shadcnCommands.npm}
+                                  className="bg-muted/20 border-input py-6 pr-8 font-mono text-sm border focus-visible:border-input"
+                                />
+                                <CopyNpmCommandButton
+                                  className="absolute right-2"
+                                  commands={{
+                                    __npmCommand__:
+                                      example.shadcnCommands?.npm!,
+                                    __pnpmCommand__:
+                                      example.shadcnCommands?.pnpm!,
+                                    __yarnCommand__:
+                                      example.shadcnCommands?.yarn!,
+                                    __bunCommand__:
+                                      example.shadcnCommands?.bun!,
                                   }}
                                 />
                               </div>
@@ -361,7 +361,7 @@ export function CodePreview({ examples }: CodePreviewProps) {
 
                           <div className="mt-6">
                             <h3 className="text-lg font-semibold">
-                              Install {example.title}
+                              Create {example.title}
                             </h3>
                             <p className="text-muted-foreground my-2 text-sm">
                               Copy and paste the{" "}

@@ -8,7 +8,7 @@
     "dev": "next dev",
     "build": "next build",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,md}'",
-    "build:registry": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-registry.mts && prettier --log-level silent --write \"registry/**/*.{ts,tsx,mdx}\" --cache",
+    "build:registry": "prettier --write 'registry/**/*.{ts,tsx,mdx}' && tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-registry.mts",
     "start": "next start",
     "lint": "next lint"
   },

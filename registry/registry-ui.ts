@@ -59,4 +59,23 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "myna-hero",
+    type: "registry:ui",
+    dependencies: ["framer-motion", "lucide-react"],
+    files: [
+      {
+        path: "ui/myna-hero.tsx",
+        content: "./registry/ui/myna-hero.tsx",
+        type: "registry:ui",
+        target: "",
+      },
+      {
+        path: "lib/utils.ts",
+        content: "./registry/lib/utils.ts",
+        type: "registry:ui",
+        target: "",
+      },
+    ],
+  },
 ];
