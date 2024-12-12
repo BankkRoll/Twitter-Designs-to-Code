@@ -78,4 +78,17 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "acme-hero",
+    type: "registry:ui",
+    dependencies: ["framer-motion", "lucide-react"],
+    files: [
+      {
+        path: "ui/acme-hero.tsx",
+        content: "./registry/ui/acme-hero.tsx",
+        type: "registry:ui",
+        target: "",
+      },
+    ],
+  },
 ];
