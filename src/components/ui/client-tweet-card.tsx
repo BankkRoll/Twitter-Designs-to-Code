@@ -1,7 +1,7 @@
 "use client";
 
 import {
-  MagicTweet,
+  TweetCard,
   TweetNotFound,
   TweetSkeleton,
 } from "@/components/ui/tweet-card";
@@ -24,7 +24,7 @@ const ClientTweetCard = ({
     return <NotFound error={onError ? onError(error) : error} />;
   }
 
-  return <MagicTweet tweet={data} components={components} {...props} />;
+  return <TweetCard tweet={data} components={components} {...props} />;
 };
 
 export default ClientTweetCard;

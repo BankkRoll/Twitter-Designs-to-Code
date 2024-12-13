@@ -4,6 +4,7 @@ import ClientTweetCard from "../ui/client-tweet-card";
 import { motion } from "framer-motion";
 
 const tweetIds = [
+  "1867624405360054275",
   "1867261450873381115",
   "1866867214395035936",
   "1866576347478495451",
