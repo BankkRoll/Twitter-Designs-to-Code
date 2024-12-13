@@ -91,4 +91,17 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "commerce-hero",
+    type: "registry:ui",
+    dependencies: ["framer-motion", "lucide-react"],
+    files: [
+      {
+        path: "ui/commerce-hero.tsx",
+        content: "./registry/ui/commerce-hero.tsx",
+        type: "registry:ui",
+        target: "",
+      },
+    ],
+  },
 ];
