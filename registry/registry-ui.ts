@@ -104,4 +104,17 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "furecom-hero",
+    type: "registry:ui",
+    dependencies: ["framer-motion", "lucide-react"],
+    files: [
+      {
+        path: "ui/furecom-hero.tsx",
+        content: "./registry/ui/furecom-hero.tsx",
+        type: "registry:ui",
+        target: "",
+      },
+    ],
+  },
 ];
